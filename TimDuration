@@ -1,0 +1,42 @@
+public class TimeDuration{
+	int seconde; 
+
+	public TimeDuration(int sec){
+		if( sec < 0){
+			System.out.println("BadBadValueException");
+		}
+		else{
+			seconde= sec;
+		}
+	}
+
+
+	public String toString() {
+		int sec; // Sec ici symbolise les seconde restante 
+		int heure=0;
+		int minute=0;
+		double res=0; // pour stocker les resultat 
+		String retour ="";
+		sec=seconde;
+		if(sec>=3600){ // calcul d'heure
+			res=sec/3800;
+			heure=(int)res;
+			sec=sec-(res*3600);
+			if(heure>0){
+				retour += heure+"h "
+			}
+		}
+		if(sec>=60){ // calcul de minute
+			res=sec/60;
+			minute=(int)res;
+			sec=sec-(res*60);
+			if(minute>0){
+				retour += minute+"m "
+			}
+		}		
+		 // calcul de seconde implicite car les seconde qui reste coresponde forcement a des seconde 
+		retour += seconde+"s"; 
+               
+	    return retour;
+    }         
+}
